@@ -1,5 +1,5 @@
 .search{
-    border-bottom: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid gray;
 }
 
 .searchForm{
@@ -17,24 +17,4 @@
 
 .searchForm > input::placeholder {
     color: lightgrey;
-}
-
-.userchat{
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    cursor: pointer;
-}
-
-.userchat:hover{
-    background-color: #3990c2;
-}
-
-.userchat > img{
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 50%;
-    object-fit: cover;
 }
