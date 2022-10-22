@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -6,14 +5,14 @@ function App() {
     <div className="App">
       
       <header>
-        //Navbar
+        Navbar
       </header>
       
       <main>
-        //Home
+        Home
       </main>
 
-      //Footer
+      Footer
     </div>
   );
 }
