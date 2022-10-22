@@ -7,16 +7,15 @@
 }
 
 .container {
-    border: 1px solid #000000;
+    border: 0.3px solid #ffffff;
     border-radius: 10px;
     width: 90%;
     height: 80%;
     display: flex;
+    overflow: hidden;
 }
 
-.container > .sidebar {
-    flex: 1;
-}
+
 
 .container > .chat {
     flex: 2;

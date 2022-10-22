@@ -1,0 +1,20 @@
+.search{
+    border-bottom: 1px solid grey;
+}
+
+.searchForm{
+    padding: 10px;
+}
+
+.searchForm > input {
+    background-color: transparent;
+    border: none;
+    
+}
+
+.userchat > img{
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}

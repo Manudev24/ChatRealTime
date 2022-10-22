@@ -1,0 +1,40 @@
+.NavbarUser {
+  display: flex;
+  align-items: center;
+  background-color: #226278;
+  height: 4rem;
+  padding: 10px;
+  justify-content: space-between;
+  color: #ffffff;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.user {
+  display: flex;
+  gap: 10px;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavbarUser > .user > img {
+    background-color: #ffffff;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.NavbarUser > .user > button{
+    background-color: #47B5FF;
+    color: #ffffff;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
