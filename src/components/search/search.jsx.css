@@ -1,15 +1,35 @@
 .search{
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid rgb(0, 0, 0);
 }
 
 .searchForm{
     padding: 10px;
+    color: white;
 }
 
 .searchForm > input {
     background-color: transparent;
     border: none;
-    
+    color: white;
+    outline: none;
+
+}
+
+.searchForm > input::placeholder {
+    color: lightgrey;
+}
+
+.userchat{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.userchat:hover{
+    background-color: #3990c2;
 }
 
 .userchat > img{

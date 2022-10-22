@@ -12,14 +12,13 @@
 }
 
 .nav-title {
-    font-size: 1rem;
-    color: #fff;
-    margin: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  margin: 1rem;
 }
 
-
 .nav-body {
-    justify-content: right;
+  justify-content: right;
   display: flex;
   width: 100%;
 }
@@ -31,16 +30,19 @@
   height: 1.5rem;
 }
 
-
-a{
-    text-decoration: none;
-    color: white;
-    height: auto;
-    width: auto;
-    cursor: pointer;
+.nav-item > a {
+  text-decoration: none;
+  color: white;
+  height: auto;
+  width: auto;
+  cursor: pointer;
 }
 
-a::hover::after{
-    color: #e6e9eb;
-    text-decoration: solid underline;
+.nav-item::after {
+  display: block;
+}
+
+.nav-item > a:hover {
+  transform: scaleX(1);
+  text-decoration: underline;
 }
