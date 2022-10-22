@@ -4,7 +4,16 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      Hola Mundo
+      
+      <header>
+        //Navbar
+      </header>
+      
+      <main>
+        //Home
+      </main>
+
+      //Footer
     </div>
   );
 }
