@@ -1,17 +1,21 @@
 import React from "react"
 import '../chat/Chat.jsx.css'
+import Input from "./Input"
+import Messages from "./Messages"
 
 const Chat = () => {
     return (
         <div className='chat'>
             <div className="chatInfo">
-                <span>Jane</span>
+                <span>Jhon</span>
                 <div className="chatIcons">
                     <img src="https://raw.githubusercontent.com/safak/youtube2022/react-chat/src/img/cam.png" alt="" />
                     <img src="https://raw.githubusercontent.com/safak/youtube2022/react-chat/src/img/add.png" alt="" />
                     <img src="https://raw.githubusercontent.com/safak/youtube2022/react-chat/src/img/more.png" alt="" />
                 </div>
             </div>
+            <Messages />
+            <Input />
         </div>
     )
 }

@@ -2,8 +2,10 @@ import React from "react"
 
 const Message = () => {
     return (
-        <div>
-
+        <div className="message">
+            Message
         </div>
     )
 }
+
+export default Message

@@ -1,0 +1,20 @@
+.home {
+    background-color: #b1ceda;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    border: 0.3px solid #ffffff;
+    border-radius: 10px;
+    width: 95%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+}
+
+.container > .chat {
+    flex: 2;
+}
