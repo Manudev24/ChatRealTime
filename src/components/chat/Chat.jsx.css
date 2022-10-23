@@ -1,24 +1,23 @@
-.chat{
-    flex: 2;
-
+.chat {
+  flex: 2;
 }
 
-.chatInfo{
-    height: 4rem;
-    background-color: #06283D;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    color: lightgrey;
+.chatInfo {
+  height: 4rem;
+  background-color: #06283d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  color: lightgrey;
 }
 
-.chatIcons{
-    display: flex;
-    gap: 10px;
+.chatIcons {
+  display: flex;
+  gap: 10px;
 }
 
-.chatIcons > img{
-    height: 24px;
-    cursor: pointer;
+.chatIcons > img {
+  height: 24px;
+  cursor: pointer;
 }
