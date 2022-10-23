@@ -1,5 +1,4 @@
 import React from "react"
-import '../chat/Chats.jsx.css'
 
 const Chats = () => {
     return (

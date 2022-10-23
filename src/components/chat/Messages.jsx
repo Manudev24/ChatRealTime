@@ -1,6 +1,5 @@
 import React from "react"
 import Message from "./Message"
-import '../chat/Messages.jsx.css'
 
 const Messages = () => {
     return (

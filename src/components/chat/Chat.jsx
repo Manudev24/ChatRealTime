@@ -1,5 +1,4 @@
 import React from "react"
-import '../chat/Chat.jsx.css'
 import Input from "./Input"
 import Messages from "./Messages"
 

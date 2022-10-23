@@ -62,3 +62,100 @@
     }
 
 }
+
+.chat {
+    flex: 2;
+}
+
+.chatInfo {
+    height: 4rem;
+    background-color: #06283d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    color: lightgrey;
+}
+
+.chatIcons {
+    display: flex;
+    gap: 10px;
+
+    img {
+        height: 24px;
+        cursor: pointer;
+    }
+}
+
+.userchat {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    cursor: pointer;
+
+    img {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &hover {
+        background-color: #3990c2;
+    }
+}
+
+
+.userChatInfo {
+    span {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    p {
+        font-size: 14px;
+        color: lightgray;
+    }
+}
+
+.input {
+    height: 50px;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: black;
+        font-size: 15px;
+
+        &::placeholder {
+            color: rgb(63, 63, 63);
+        }
+    }
+}
+
+.send {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+        height: 24px;
+        cursor: pointer;
+    }
+
+    button {
+        border: none;
+        padding: 10px 15px;
+        color: white;
+        background-color: #47b5ff;
+        border-radius: 4%;
+    }
+}
