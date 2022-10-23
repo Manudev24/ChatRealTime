@@ -1,3 +1,143 @@
+.home {
+    background-color: #b1ceda;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    border: 0.3px solid #ffffff;
+    border-radius: 10px;
+    width: 95%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+
+    .chat {
+        flex: 2;
+    }
+}
+
+.nav {
+    height: 3rem;
+    width: 100%;
+    background-color: #06283d;
+    display: flex;
+    text-align: center;
+}
+
+.nav-header {
+    display: inline;
+    margin: 0 auto;
+}
+
+.nav-title {
+    font-size: 1rem;
+    color: #fff;
+    margin: 1rem;
+}
+
+.nav-body {
+    justify-content: right;
+    display: flex;
+    width: 100%;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 2rem;
+    width: 5rem;
+    height: 1.5rem;
+
+    a {
+        text-decoration: none;
+        color: white;
+        height: auto;
+        width: auto;
+        cursor: pointer;
+    }
+}
+
+.nav-item>a:hover {
+    transform: scaleX(1);
+    text-decoration: underline;
+}
+
+
+.search {
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.searchForm {
+    padding: 10px;
+    color: white;
+
+    input {
+        background-color: transparent;
+        border: none;
+        color: white;
+        outline: none;
+    }
+
+    input::placeholder {
+        color: rgb(231, 231, 231);
+    }
+}
+
+
+.NavbarUser {
+    display: flex;
+    align-items: center;
+    background-color: #226278;
+    height: 4rem;
+    padding: 10px;
+    justify-content: space-between;
+    color: #ffffff;
+
+    .logo {
+        font-weight: bold;
+    }
+
+    .user {
+        display: flex;
+        gap: 10px;
+
+        img {
+            background-color: #ffffff;
+            height: 3rem;
+            width: 3rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        button {
+            background-color: #47b5ff;
+            color: #ffffff;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 10%;
+        }
+    }
+}
+
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sidebar {
+    flex: 1;
+    border-right: 1 solid #256d85;
+    background-color: #256d85d2;
+    width: 100%;
+}
+
+
 .messages {
     background-color: #47b5ffb0;
     padding: 10px;
