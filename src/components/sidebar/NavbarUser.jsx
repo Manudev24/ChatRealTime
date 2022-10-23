@@ -1,4 +1,4 @@
-import "../sidebar/NavbarUser.jsx.css"
+import React from "react"
 
 const NavbarUser = () => {
     return (

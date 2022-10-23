@@ -1,4 +1,4 @@
-import '../navbar/navbar.jsx.css'
+import React from "react"
 
 const navbar = () => {
 
