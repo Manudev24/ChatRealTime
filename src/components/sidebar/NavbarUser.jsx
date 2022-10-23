@@ -6,7 +6,7 @@ const NavbarUser = () => {
 
             <span className="logo">ChatRealTime</span>
             <div className="user">
-                <img src="https://www.adobe.com/es/express/create/media_127a4cd0c28c2753638768caf8967503d38d01e4c.jpeg?width=400&format=jpeg&optimize=medium" alt="" />
+                <img src="https://static.vecteezy.com/system/resources/previews/002/399/634/original/v-letter-logo-business-template-icon-free-vector.jpg" alt="" />
                 <span className="name">Victor</span>
                 <button>SingOut</button>
             </div>
