@@ -3,11 +3,14 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import { async } from "@firebase/util";
 
 
 const Register = () => {
 
-    const handleSubmit = (e) => {
+    const [error, setError] = useState(false);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const fullName = e.target[0].value;
@@ -15,18 +18,39 @@ const Register = () => {
         const password = e.target[2].value;
         const file = e.target[3].files[0];
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                console.log(user);
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-            });
+        try {
+            const res = await createUserWithEmailAndPassword(auth, email, password);
+
+
+            const storageRef = ref(storage, fullName);
+
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            uploadTask.on('state_changed',
+                (error) => {
+                    setError(true)
+                },
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+                        await updateProfile(res.user, {
+                            fullName,
+                            photoURL:downloadURL,
+                        })
+                        await setDoc(doc(db, "users", res.user.uid), {
+                            uid: res.user.uid,
+                            fullName,
+                            email,
+                            photoURL: downloadURL
+                        });
+                    });
+                }
+            );
+
+
+        } catch (err) {
+            setError(true);
+        }
+
     }
 
 
@@ -46,6 +70,7 @@ const Register = () => {
                         <span>Add an imagen</span>
                     </label>
                     <button>Sing up</button>
+                    {error && <span>Something went wrong</span>}
                 </form>
                 <p>Are you already registered? Login</p>
             </div>
