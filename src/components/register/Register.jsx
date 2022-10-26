@@ -20,10 +20,7 @@ const Register = () => {
 
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password);
-
-
             const storageRef = ref(storage, fullName);
-
             const uploadTask = uploadBytesResumable(storageRef, file);
 
             uploadTask.on('state_changed',
@@ -47,7 +44,7 @@ const Register = () => {
             );
 
 
-        } catch (err) {
+        } catch (error) {
             setError(true);
         }
 
