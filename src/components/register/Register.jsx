@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { getStorage, auth, db, storage } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -44,6 +45,13 @@ const Register = () => {
                             email,
                             photoURL: downloadURL
                         });
+
+                        await setDoc(doc(db, "userChat", res.user.uid), {
+                            uid: res.user.uid,
+                            fullName,
+                            email,
+                            photoURL: downloadURL
+                        });
                     });
                 }
             );
@@ -75,7 +83,7 @@ const Register = () => {
                     <button>Sing up</button>
                     {err && <span>Something went wrong</span>}
                 </form>
-                <p>Are you already registered? Login</p>
+                <p>Are you already registered? <Link to="/login">Login here</Link></p>
             </div>
         </div>
     )
