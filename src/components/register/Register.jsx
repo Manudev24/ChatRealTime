@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, db, storage } from "../../firebase";
+import { getStorage, auth, db, storage } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { async } from "@firebase/util";
-
-
 const Register = () => {
 
-    const [error, setError] = useState(false);
+    const [err, setErr] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,19 +18,26 @@ const Register = () => {
 
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password);
+
+
             const storageRef = ref(storage, fullName);
+
             const uploadTask = uploadBytesResumable(storageRef, file);
 
-            uploadTask.on('state_changed',
+            // Register three observers:
+            uploadTask.on(
                 (error) => {
-                    setError(true)
+                    setErr(true);
                 },
                 () => {
+                    // Handle successful uploads on complete
+                    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+                        console.log('File available at', downloadURL);
                         await updateProfile(res.user, {
                             fullName,
-                            photoURL:downloadURL,
-                        })
+                            photoURL: downloadURL,
+                        });
                         await setDoc(doc(db, "users", res.user.uid), {
                             uid: res.user.uid,
                             fullName,
@@ -44,8 +49,9 @@ const Register = () => {
             );
 
 
-        } catch (error) {
-            setError(true);
+
+        } catch (err) {
+            setErr(true);
         }
 
     }
@@ -67,7 +73,7 @@ const Register = () => {
                         <span>Add an imagen</span>
                     </label>
                     <button>Sing up</button>
-                    {error && <span>Something went wrong</span>}
+                    {err && <span>Something went wrong</span>}
                 </form>
                 <p>Are you already registered? Login</p>
             </div>
