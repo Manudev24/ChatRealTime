@@ -5,9 +5,11 @@ import { getStorage, auth, db, storage } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { async } from "@firebase/util";
+
 const Register = () => {
 
     const [err, setErr] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,7 +21,6 @@ const Register = () => {
 
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password);
-
 
             const storageRef = ref(storage, fullName);
 
@@ -46,17 +47,12 @@ const Register = () => {
                             photoURL: downloadURL
                         });
 
-                        await setDoc(doc(db, "userChat", res.user.uid), {
-                            uid: res.user.uid,
-                            fullName,
-                            email,
-                            photoURL: downloadURL
-                        });
+                        await setDoc(doc(db, "userChat", res.user.uid), {});
+
+                        navigate("/");
                     });
                 }
             );
-
-
 
         } catch (err) {
             setErr(true);
