@@ -35,7 +35,6 @@ const Register = () => {
                     // Handle successful uploads on complete
                     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-                        console.log('File available at', downloadURL);
                         await updateProfile(res.user, {
                             fullName,
                             photoURL: downloadURL,
@@ -47,7 +46,7 @@ const Register = () => {
                             photoURL: downloadURL
                         });
 
-                        await setDoc(doc(db, "userChat", res.user.uid), {});
+                        //await setDoc(doc(db, "userChat", res.user.uid), {});
 
                         navigate("/");
                     });
