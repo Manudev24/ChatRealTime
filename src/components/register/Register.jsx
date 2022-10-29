@@ -4,7 +4,6 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { getStorage, auth, db, storage } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
-import { async } from "@firebase/util";
 
 const Register = () => {
 
@@ -14,7 +13,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const fullName = e.target[0].value;
+        const displayName = e.target[0].value;
         const email = e.target[1].value;
         const password = e.target[2].value;
         const file = e.target[3].files[0];
@@ -22,26 +21,23 @@ const Register = () => {
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password);
 
-            const storageRef = ref(storage, fullName);
+            const storageRef = ref(storage, displayName);
 
             const uploadTask = uploadBytesResumable(storageRef, file);
 
-            // Register three observers:
             uploadTask.on(
                 (error) => {
                     setErr(true);
                 },
                 () => {
-                    // Handle successful uploads on complete
-                    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
                         await updateProfile(res.user, {
-                            fullName,
+                            displayName,
                             photoURL: downloadURL,
                         });
                         await setDoc(doc(db, "users", res.user.uid), {
                             uid: res.user.uid,
-                            fullName,
+                            displayName,
                             email,
                             photoURL: downloadURL
                         });
