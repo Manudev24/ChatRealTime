@@ -6,7 +6,7 @@ import Message from "./Message"
 
 const Messages = () => {
 
-    const [messages, setMessages] = useState();
+    const [messages, setMessages] = useState([]);
     const { data } = useContext(ChatContext);
 
     useEffect(() => {
