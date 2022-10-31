@@ -18,7 +18,7 @@ const Input = () => {
 
     const handleSend = async () => {
         if (img) {
-            const storageRef = ref(storage, uuid);
+            const storageRef = ref(storage, uuid());
 
             const uploadTask = uploadBytesResumable(storageRef, img);
 
@@ -51,11 +51,34 @@ const Input = () => {
                 }),
             });
         }
+
+        await updateDoc(doc(db,"userChats", currentUser.uid), {
+            [data.chatId + ".lastMessage"]: {
+                text
+            },
+            [data.chatId + ".date"]: serverTimestamp()
+        })
+
+        await updateDoc(doc(db,"userChats", data.user.uid), {
+            [data.chatId + ".lastMessage"]: {
+                text
+            },
+            [data.chatId + ".date"]: serverTimestamp()
+        })
+
+        setText("")
+        setImg(null)
+        setError(false)
     };
 
     return (
         <div className="input">
-            <input type="text" placeholder="Type something..." onChange={e => setText(e.target.value)} />
+            <input 
+                type="text" 
+                placeholder="Type something..." 
+                onChange={e => setText(e.target.value)} 
+                value={text}
+            />
             <div className="send">
                 <img src="https://raw.githubusercontent.com/safak/youtube2022/react-chat/src/img/attach.png" alt="" />
                 <input type="file" style={{ display: "none" }} id="file" onChange={e => setImg(e.target.files[0])} />
